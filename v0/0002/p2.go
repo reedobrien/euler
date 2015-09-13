@@ -5,7 +5,7 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/reedobrien/euler/utils"
+	"github.com/reedobrien/euler/v0/utils"
 )
 
 var (
