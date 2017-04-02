@@ -17,25 +17,32 @@ import (
 	"time"
 )
 
-func sqos(n int64) int64 {
-	var i, sum int64
+// sqos returns the sum of numbers up to n, squared.
+func sqos(n int) int {
+	var i, sum int
 	for i = 1; i <= n; i++ {
 		sum += i
 	}
-	sq := math.Pow(float64(sum), 2)
-	return int64(sq)
+	sq := sum * sum
+	return sq
 }
 
-func sosq(n int64) int64 {
-	var i, sum int64
+// sosq returns the sum of the squares of numbers up to n.
+func sosq(n int) int {
+	var i, sum int
 	for i = 1; i <= n; i++ {
-		sum += int64(math.Pow(float64(i), 2))
+		sum += i * i
 	}
 	return sum
 }
 
+// Difference returns the difference between SquareOfSums and SumOfSquares.
+func difference(i int) int {
+	return sqos(i) - sosq(i)
+}
+
 func main() {
 	start := time.Now()
-	diff := sqos(100) - sosq(100)
+	diff := difference(100):
 	fmt.Printf("The difference between sum of sq and sq of sum of the first 100 naturual numbers: %d\n Found in %s.\n", diff, time.Since(start))
 }
